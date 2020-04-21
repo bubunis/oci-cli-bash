@@ -1,0 +1,10 @@
+{
+  "namespace": "ocicustomeropshb",
+  "name": "AMARESH-TEST",
+  "compartmentId": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+  "metadata": {},
+  "publicAccessType": "ObjectReadWithoutList",
+  "storageTier": "Standard",
+  "freeformTags": {},
+  "definedTags": {}
+}

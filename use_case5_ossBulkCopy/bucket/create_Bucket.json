@@ -1,0 +1,11 @@
+{
+  "namespace": "ocicustomeropshb",
+  "name": "Mono-NEW-BUCKET",
+  "compartmentId": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+  "metadata": {},
+  "publicAccessType": "ObjectRead",
+  "storageTier": "Archive",
+  "freeformTags": {},
+  "definedTags": {},
+  "kmsKeyId": null
+}

@@ -1,0 +1,152 @@
+1. oci network route-table list -c ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a --vcn-id ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq|jq -r '.data[]'
+
+
+{
+  "compartment-id": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+  "defined-tags": {},
+  "display-name": "ROUTE2",
+  "freeform-tags": {},
+  "id": "ocid1.routetable.oc1.iad.aaaaaaaaw7gs5r36ribns5f2uu2iypq5joevb55bqk63vmassmmwt4jvufza",
+  "lifecycle-state": "AVAILABLE",
+  "route-rules": [],
+  "time-created": "2019-09-20T02:30:01.296000+00:00",
+  "vcn-id": "ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq"
+}
+{
+  "compartment-id": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+  "defined-tags": {},
+  "display-name": "ROUTE1",
+  "freeform-tags": {},
+  "id": "ocid1.routetable.oc1.iad.aaaaaaaajqzbaet5hce7t4pf7gmo7ogdrpuov56loo3i5vjsqft7cveni6qq",
+  "lifecycle-state": "AVAILABLE",
+  "route-rules": [],
+  "time-created": "2019-09-20T02:29:53.315000+00:00",
+  "vcn-id": "ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq"
+}
+{
+  "compartment-id": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+  "defined-tags": {},
+  "display-name": "Default Route Table for mono-VCN",
+  "freeform-tags": {},
+  "id": "ocid1.routetable.oc1.iad.aaaaaaaagqz47iu2vo27ftcskltxdxvkuwowvibh6gt6fxsqwgbndjjflykq",
+  "lifecycle-state": "AVAILABLE",
+  "route-rules": [
+    {
+      "cidr-block": null,
+      "destination": "0.0.0.0/0",
+      "destination-type": "CIDR_BLOCK",
+      "network-entity-id": "ocid1.internetgateway.oc1.iad.aaaaaaaab34tbz42oqhtsujtioz4hjhm6aqftjhs3ywtqgtdsdsxnvo6iuja"
+    },
+    {
+      "cidr-block": null,
+      "destination": "192.168.0.0/16",
+      "destination-type": "CIDR_BLOCK",
+      "network-entity-id": "ocid1.localpeeringgateway.oc1.iad.aaaaaaaah34qhg74mgtwrfqwk242cppzazkaqddj3fg2d5qq2qyovki6zs2a"
+    },
+    {
+      "cidr-block": null,
+      "destination": "192.168.2.0/24",
+      "destination-type": "CIDR_BLOCK",
+      "network-entity-id": "ocid1.localpeeringgateway.oc1.iad.aaaaaaaaixemdvxz536qowr3kk5tpofyrvp7pdpdfpwxex3ar732nf7rf5bq"
+    }
+  ],
+  "time-created": "2019-03-13T05:20:38.281000+00:00",
+  "vcn-id": "ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq"
+}
+
+
+2. oci network subnet list -c ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a --vcn-id ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq
+{
+  "data": [
+    {
+      "availability-domain": null,
+      "cidr-block": "10.0.3.0/24",
+      "compartment-id": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+      "defined-tags": {},
+      "dhcp-options-id": "ocid1.dhcpoptions.oc1.iad.aaaaaaaabu5gwb55l2alj5rfj4q2h32xbmeruipu4lrxxbibahtpkxic4awa",
+      "display-name": "private_Zone",
+      "dns-label": null,
+      "freeform-tags": {},
+      "id": "ocid1.subnet.oc1.iad.aaaaaaaaia55zk5yakxrxuzfwtr7li2qtmjbnapek3yeedwvofv4awr4bktq",
+      "lifecycle-state": "AVAILABLE",
+      "prohibit-public-ip-on-vnic": true,
+      "route-table-id": "ocid1.routetable.oc1.iad.aaaaaaaagqz47iu2vo27ftcskltxdxvkuwowvibh6gt6fxsqwgbndjjflykq",
+      "security-list-ids": [
+        "ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"
+      ],
+      "subnet-domain-name": null,
+      "time-created": "2019-08-02T15:23:21.625000+00:00",
+      "vcn-id": "ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq",
+      "virtual-router-ip": "10.0.3.1",
+      "virtual-router-mac": "00:00:17:18:2C:95"
+    },
+    {
+      "availability-domain": "ntyR:US-ASHBURN-AD-1",
+      "cidr-block": "10.0.0.0/24",
+      "compartment-id": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+      "defined-tags": {},
+      "dhcp-options-id": "ocid1.dhcpoptions.oc1.iad.aaaaaaaabu5gwb55l2alj5rfj4q2h32xbmeruipu4lrxxbibahtpkxic4awa",
+      "display-name": "Public Subnet ntyR:US-ASHBURN-AD-1",
+      "dns-label": null,
+      "freeform-tags": {},
+      "id": "ocid1.subnet.oc1.iad.aaaaaaaa7hpfwtwcybgpiufqponga4qmmpsc5ysnqmsikkz7pcfq2v5lc2ka",
+      "lifecycle-state": "AVAILABLE",
+      "prohibit-public-ip-on-vnic": false,
+      "route-table-id": "ocid1.routetable.oc1.iad.aaaaaaaagqz47iu2vo27ftcskltxdxvkuwowvibh6gt6fxsqwgbndjjflykq",
+      "security-list-ids": [
+        "ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"
+      ],
+      "subnet-domain-name": null,
+      "time-created": "2019-03-13T05:20:42.400000+00:00",
+      "vcn-id": "ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq",
+      "virtual-router-ip": "10.0.0.1",
+      "virtual-router-mac": "00:00:17:18:2C:95"
+    },
+    {
+      "availability-domain": "ntyR:US-ASHBURN-AD-2",
+      "cidr-block": "10.0.1.0/24",
+      "compartment-id": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+      "defined-tags": {},
+      "dhcp-options-id": "ocid1.dhcpoptions.oc1.iad.aaaaaaaabu5gwb55l2alj5rfj4q2h32xbmeruipu4lrxxbibahtpkxic4awa",
+      "display-name": "Public Subnet ntyR:US-ASHBURN-AD-2",
+      "dns-label": null,
+      "freeform-tags": {},
+      "id": "ocid1.subnet.oc1.iad.aaaaaaaavvky5jrpfutxdmoqxhc7qozfsztw62ssb2vr6cfp7cz3tdtqh43a",
+      "lifecycle-state": "AVAILABLE",
+      "prohibit-public-ip-on-vnic": false,
+      "route-table-id": "ocid1.routetable.oc1.iad.aaaaaaaagqz47iu2vo27ftcskltxdxvkuwowvibh6gt6fxsqwgbndjjflykq",
+      "security-list-ids": [
+        "ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"
+      ],
+      "subnet-domain-name": null,
+      "time-created": "2019-03-13T05:20:42.233000+00:00",
+      "vcn-id": "ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq",
+      "virtual-router-ip": "10.0.1.1",
+      "virtual-router-mac": "00:00:17:18:2C:95"
+    },
+    {
+      "availability-domain": "ntyR:US-ASHBURN-AD-3",
+      "cidr-block": "10.0.2.0/24",
+      "compartment-id": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+      "defined-tags": {},
+      "dhcp-options-id": "ocid1.dhcpoptions.oc1.iad.aaaaaaaabu5gwb55l2alj5rfj4q2h32xbmeruipu4lrxxbibahtpkxic4awa",
+      "display-name": "Public Subnet ntyR:US-ASHBURN-AD-3",
+      "dns-label": null,
+      "freeform-tags": {},
+      "id": "ocid1.subnet.oc1.iad.aaaaaaaagortowryei42pypvzi3tflpwwtzebiyenuxid3y2wjw64jjczqaa",
+      "lifecycle-state": "AVAILABLE",
+      "prohibit-public-ip-on-vnic": false,
+      "route-table-id": "ocid1.routetable.oc1.iad.aaaaaaaagqz47iu2vo27ftcskltxdxvkuwowvibh6gt6fxsqwgbndjjflykq",
+      "security-list-ids": [
+        "ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"
+      ],
+      "subnet-domain-name": null,
+      "time-created": "2019-03-13T05:20:42.061000+00:00",
+      "vcn-id": "ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq",
+      "virtual-router-ip": "10.0.2.1",
+      "virtual-router-mac": "00:00:17:18:2C:95"
+    }
+  ]
+}
+
+

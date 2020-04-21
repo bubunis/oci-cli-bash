@@ -1,0 +1,71 @@
+1. Verify export options allow access from the source NFS client compute instance or subnet or VCN CIDR -- HOW??
+2/ IP should be replaced by "MOUNT-TARGER-IP"
+3.
+root@restored-oel7 opc]# oci fs export get --export-id ocid1.export.oc1.iad.aaaaacvippxf33vonfqwillqojxwiotjmfsc2ylefuzqaaaa
+{
+  "data": {
+    "export-options": [
+      {
+        "access": "READ_WRITE",
+        "anonymous-gid": 65534,
+        "anonymous-uid": 65534,
+        "identity-squash": "NONE",
+        "require-privileged-source-port": false,
+        "source": "0.0.0.0/0"
+      }
+    ],
+    "export-set-id": "ocid1.exportset.oc1.iad.aaaaaa4np2snb3kmnfqwillqojxwiotjmfsc2ylefuzqaaaa",
+    "file-system-id": "ocid1.filesystem.oc1.iad.aaaaaaaaaaaakjb4nfqwillqojxwiotjmfsc2ylefuzqaaaa",
+    "id": "ocid1.export.oc1.iad.aaaaacvippxf33vonfqwillqojxwiotjmfsc2ylefuzqaaaa",
+    "lifecycle-state": "ACTIVE",
+    "path": "/MONO-FSS-AD3",
+    "time-created": "2019-04-12T03:35:11+00:00"
+  },
+  "etag": "f71640511c8d85a8f62147db2b9e68fb9956a7bbb10bcd4305014f829a871058--gzip"
+}
+
+
+{
+  "access": "READ_WRITE",
+  "anonymous-gid": 65534,
+  "anonymous-uid": 65534,
+  "identity-squash": "NONE",
+  "require-privileged-source-port": false,
+  "source": "0.0.0.0/0"
+}
+{
+  "access": "READ_WRITE",
+  "anonymous-gid": 65534,
+  "anonymous-uid": 65534,
+  "identity-squash": "NONE",
+  "require-privileged-source-port": false,
+  "source": "0.0.0.0/0"
+}
+
+
+4/Output of the mount command from OS
+5/
+[root@restored-oel7 MONO-FSS-AD3]#  time (for x in $(seq 1 10); do dd if=/dev/zero of=/mnt/MONO-FSS-AD3/dd/dummy_${x}.log bs=1M count=1 ; done; sync)|grep -i copied
+1048576 bytes (1.0 MB) copied, 0.078294 s, 13.4 MB/s
+1048576 bytes (1.0 MB) copied, 0.0699264 s, 15.0 MB/s
+1048576 bytes (1.0 MB) copied, 0.0644966 s, 16.3 MB/s
+1048576 bytes (1.0 MB) copied, 0.0722237 s, 14.5 MB/s
+1048576 bytes (1.0 MB) copied, 0.0659921 s, 15.9 MB/s
+1048576 bytes (1.0 MB) copied, 0.0645505 s, 16.2 MB/s
+1048576 bytes (1.0 MB) copied, 0.0688074 s, 15.2 MB/s
+1048576 bytes (1.0 MB) copied, 0.0663328 s, 15.8 MB/s
+
+
+real	0m1.009s
+user	0m0.011s
+sys	0m0.028s
+
+Vinoth need opnly the speed and the TIME
+
+6. If the used space is >= 1TB then the READ throughput is around 100MBPS.
+   Any compute maching which has at least 2GBPS NW BW [ Minimum VM.Standard2.2 ]
+
+
+
+
+ 

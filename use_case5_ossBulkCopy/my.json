@@ -1,0 +1,7 @@
+{
+    "sourceName" : "NEW-UPLOAD",
+    "newName" : "TargetObjectName",
+    "srcObjIfMatchETag": "*",
+    "newObjIfMatchETag": "*",
+    "newObjIfNoneMatchETag": "*"
+}

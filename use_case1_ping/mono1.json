@@ -1,0 +1,7 @@
+{
+  "namespace": "oci_computeagent",
+#  "query": "DiskBytesRead[1m]{resourceId="ocid1.instance.oc1.iad.abuwcljsjfu6j3wo35pckrgpxizrenrza7dcpijevrm3a43zgkcbpebnt2aq"}.max()",
+  "query": "CpuUtilization[1m]{resourceId="ocid1.instance.oc1.iad.abuwcljsjfu6j3wo35pckrgpxizrenrza7dcpijevrm3a43zgkcbpebnt2aq"}.groupBy(resourceId, region).max()"
+  "startTime": "2019-04-19T12:44:26",
+  "endTime": "2019-04-19T16:59:34"
+}

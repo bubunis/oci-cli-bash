@@ -1,0 +1,95 @@
+
+SHOWING ALL RESOURCES UNDER ap-mumbai-1
++++++++++++++++++++++++++++++++++++++++
+
+| Compartment COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER eu-frankfurt-1
++++++++++++++++++++++++++++++++++++++++
+
+| Bucket COUNT: 2 
+| Compartment COUNT: 1 
+| Image COUNT: 1 
+| RouteTable COUNT: 1 
+| SecurityList COUNT: 1 
+| Subnet COUNT: 3 
+| Vcn COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER sa-saopaulo-1
++++++++++++++++++++++++++++++++++++++++
+
+| Compartment COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER us-ashburn-1
++++++++++++++++++++++++++++++++++++++++
+
+| BootVolume COUNT: 5 
+| BootVolumeBackup COUNT: 15 
+| Bucket COUNT: 2 
+| Compartment COUNT: 1 
+| Image COUNT: 4 
+| Instance COUNT: 5 
+| NatGateway COUNT: 1 
+| RouteTable COUNT: 3 
+| SecurityList COUNT: 3 
+| ServiceGateway COUNT: 1 
+| Subnet COUNT: 5 
+| Vcn COUNT: 3 
+| Volume COUNT: 5 
+| VolumeBackup COUNT: 4 
+
+SHOWING ALL RESOURCES UNDER ap-seoul-1
++++++++++++++++++++++++++++++++++++++++
+
+| Compartment COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER uk-london-1
++++++++++++++++++++++++++++++++++++++++
+
+| Compartment COUNT: 1 
+| RouteTable COUNT: 1 
+| SecurityList COUNT: 1 
+| Subnet COUNT: 3 
+| Vcn COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER ap-tokyo-1
++++++++++++++++++++++++++++++++++++++++
+
+| Compartment COUNT: 1 
+| RouteTable COUNT: 1 
+| SecurityList COUNT: 1 
+| Subnet COUNT: 1 
+| Vcn COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER us-phoenix-1
++++++++++++++++++++++++++++++++++++++++
+
+| BootVolume COUNT: 3 
+| Compartment COUNT: 1 
+| Instance COUNT: 3 
+| RouteTable COUNT: 1 
+| SecurityList COUNT: 1 
+| Subnet COUNT: 3 
+| Vcn COUNT: 1 
+| Volume COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER ap-sydney-1
++++++++++++++++++++++++++++++++++++++++
+
+| Compartment COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER ca-toronto-1
++++++++++++++++++++++++++++++++++++++++
+
+| Bucket COUNT: 1 
+| Compartment COUNT: 1 
+| Image COUNT: 1 
+| RouteTable COUNT: 1 
+| SecurityList COUNT: 1 
+| Subnet COUNT: 1 
+| Vcn COUNT: 1 
+
+SHOWING ALL RESOURCES UNDER eu-zurich-1
++++++++++++++++++++++++++++++++++++++++
+
+| Compartment COUNT: 1 

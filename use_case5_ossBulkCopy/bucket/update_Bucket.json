@@ -1,0 +1,12 @@
+{
+  "namespace": "ocicustomeropshb",
+  "name": "MonoUPDATED-NEW-BUCKET",
+  "compartmentId": "ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a",
+  "metadata": {},
+  "etag": "4d9a6ddd-a792-48db-a0a5-595ae67b21c2",
+  "publicAccessType": "ObjectRead",
+  "storageTier": "Archive",
+  "freeformTags": {},
+  "definedTags": {},
+  "kmsKeyId": null
+}

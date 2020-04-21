@@ -1,0 +1,6 @@
+Tokyo, https://objectstorage.ap-tokyo-1.oraclecloud.com
+Toronto, https://objectstorage.ca-toronto-1.oraclecloud.com
+Frankfurt, https://objectstorage.eu-frankfurt-1.oraclecloud.com
+London, https://objectstorage.uk-london-1.oraclecloud.com
+Ashburn, https://objectstorage.us-ashburn-1.oraclecloud.com
+Phoenix, https://objectstorage.us-phoenix-1.oraclecloud.com

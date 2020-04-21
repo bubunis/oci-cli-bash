@@ -1,0 +1,15 @@
+
+fio --filename=/dev/sdb --direct=1 --rw=randread --bs=4k --ioengine=libaio --iodepth=256 --runtime=10 --numjobs=4 --time_based --group_reporting --name=iops-test-job --readonly 1>/dev/null &
+PID=$!
+
+while [ $PID -gt 1 ]
+do
+printf "."
+sleep 1
+ps $PID 1>/dev/null
+if [ $? -eq 1 ];then
+break
+fi
+done
+
+echo "SOME other command"

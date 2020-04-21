@@ -1,0 +1,53 @@
+ oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/securityLists/ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"|jq '.ingressSecurityRules[].tcpOptions.destinationPortRange.max'|grep -v null
+22
+3389
+25
+4444
+587
+111
+2050
+
+#### Listing out all the seclist in a given VCN ####
+
+oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/securityLists?vcnId=ocid1.vcn.oc1.iad.aaaaaaaatu4arzf65yejickbkd7zbbuweyvq4wswuctx5dguew76nhanillq&compartmentId=ocid1.compartment.oc1..aaaaaaaagctfina6fj36f7tgr5gaf6zo5c2r5ijz4aakm3x2ive3jdwyv45a"|jq '.[].id'
+"ocid1.securitylist.oc1.iad.aaaaaaaajitd2niweycvy4ioog57wwjsodborzgyzggcr6g2sk433t6uokwa"
+"ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"
+
+### Listing out all source ###
+hello=`oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/securityLists/ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"|jq '.ingressSecurityRules[].source'|tr -d '"'`
+
+### Listing out all destination ports ###
+
+bello=`oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/securityLists/ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"|jq '.ingressSecurityRules[].tcpOptions.destinationPortRange.min'`
+
+jello=`oci-curl iaas.us-ashburn-1.oraclecloud.com get "/20160918/securityLists/ocid1.securitylist.oc1.iad.aaaaaaaatcjwwvflz7ul6a6wtqdjmyfv7cz3brik3yydu3om44jfwdd3t53q"|jq '.ingressSecurityRules[].tcpOptions.destinationPortRange.max'`
+
+
+[root@centos-ad2-fd3 use_case3_checkPort]# paste <(printf %s "$hello") <(printf %s "$bello") <(printf %s "$jello")
+0.0.0.0/0	22
+0.0.0.0/0	3389
+0.0.0.0/0	25
+0.0.0.0/0	4444
+0.0.0.0/0	587
+0.0.0.0/0	null
+10.0.0.0/16	null
+10.0.0.0/16	111
+10.0.0.0/16	2050
+10.0.0.0/16	null
+10.0.0.0/16	null
+
+
+while IFS= read -r -u3 a && read -r -u4 b; do
+>   printf '%s\t%s\n' "$a" "$b"
+> done 3<<<"$hello" 4<<<"$bello"
+0.0.0.0/0	22
+0.0.0.0/0	3389
+0.0.0.0/0	25
+0.0.0.0/0	4444
+0.0.0.0/0	587
+0.0.0.0/0	null
+10.0.0.0/16	null
+10.0.0.0/16	111
+10.0.0.0/16	2048
+10.0.0.0/16	null
+10.0.0.0/16	null

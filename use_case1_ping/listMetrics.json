@@ -1,0 +1,7 @@
+{
+  "namespace": "oci_computeagent",
+  "dimensionFilters":
+  {
+   "resourceId": "ocid1.instance.oc1.iad.abuwcljrur3ff73kscqfwoar4uzt5xjuv5juyo6kvborsdg5nzdgxaacqdwq"
+  }
+}

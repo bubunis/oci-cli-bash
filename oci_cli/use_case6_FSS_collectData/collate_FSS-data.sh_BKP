@@ -1,0 +1,47 @@
+ALL_NAME_C=`oci iam compartment list --all |jq -r '.data[].name'`
+ALL_OCID_C=`oci iam compartment list --all |jq -r '.data[].id'`
+
+if [ "`echo -e $ALL_NAME_C|grep -o $1|uniq`" == $1 ];then
+	COMP_OCID=`oci iam compartment list --all|grep -B4 $1|grep id|awk -F':' '{print $2}'|tr -d '", '`
+elif [ "`echo -e $ALL_OCID_C|grep -o $1|uniq`" == $1 ];then
+	COMP_OCID=$1
+else
+        echo "$1 DOESN'T MATCH WITH ANY COMPARTMENT"
+	exit 0;
+fi
+
+if [ -z /$USER/.oci/config ];then
+        echo "SEEMS CONFIG FILE NOT PRESENT. PLEASE RUN -"
+        echo "oci setup config -- To SETUP THE CONFIG FILE"
+        echo "oci setup repair-file-permissions --file /$USER/.oci/config -- TO REPAIR THE SAME AFTER CONFIGURATION"
+        exit 0;
+fi
+
+echo "PLEASE NOTE WE HAVE FOUND BELOW CONFIGURATION IN config FILE"
+echo "############################################################"
+cat /$USER/.oci/config
+echo "############################################################"
+#read -p "DO YOU WANT TO CHANGE ANY CONFIGURATION [Y/N]: " RESPONSE
+
+echo "SHOWING FSS UNDER COMPARTMENT: $1" 
+
+for i in `oci iam availability-domain list |jq -r '.data[].name'`
+do
+echo "SHOWING FSS IN $i"
+echo "+++++++++++++++++"
+VAL=`oci fs mount-target list -c $COMP_OCID --availability-domain $i|wc -c`
+if [ $VAL -eq 0 ];then
+	echo "FSS NOT FOUND"
+else
+	oci fs mount-target list -c $COMP_OCID --availability-domain $i
+#oci fs export-set list -c $COMP_OCID --availability-domain $i
+	OCID_VCN=`oci fs export-set list -c $COMP_OCID --availability-domain $i |jq -r '.data[]."vcn-id"'`
+	echo "SHOWING RELATED SECURITY LIST IN $i"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo -e "\nEGRESS --"
+	oci network security-list list -c $COMP_OCID --vcn-id $OCID_VCN |jq '.data[]."egress-security-rules"[]."tcp-options"."destination-port-range"'|grep -v null|jq '.|select(.max==2050 or .max==111 or .max==2048)'
+
+	echo -e "\nINGRESS --"
+	oci network security-list list -c $COMP_OCID --vcn-id $OCID_VCN |jq '.data[]."ingress-security-rules"[]."tcp-options"."destination-port-range"'|grep -v null|jq '.|select(.max==2050 or .max==111 or .max==2048)'
+fi
+done
